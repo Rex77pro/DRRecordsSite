@@ -21,7 +21,7 @@ const app = Vue.createApp({
     },
     async getAll() {
       
-      let uri = baseUri 
+      let uri = baseUri       
 
       if (this.title != null){
         uri = uri + "?title=" + this.title
@@ -40,13 +40,20 @@ const app = Vue.createApp({
           const response = await axios.get(uri)
           this.getAllResponse = await response
           this.error = null
-          this.showGetAll = true
+          this.showGetAll = true 
+          this.title = null
+          this.artist = null
+          this.duration = null
+          this.publicationyear = null         
       } catch (error) {
           this.getAllResponse = null
           this.error = error
           this.showGetAll = false
+          this.title = null
+          this.artist = null
+          this.duration = null
+          this.publicationyear = null
       }
-      debugger;
     },
   },
 })
